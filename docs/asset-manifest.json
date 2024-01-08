@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "//silvatuning.github.io/silvatuning0000/static/css/main.e6c13ad2.css",
-    "main.js": "//silvatuning.github.io/silvatuning0000/static/js/main.313e8c3b.js",
+    "main.js": "//silvatuning.github.io/silvatuning0000/static/js/main.ba02f369.js",
     "static/js/787.8edbc95a.chunk.js": "//silvatuning.github.io/silvatuning0000/static/js/787.8edbc95a.chunk.js",
     "index.html": "//silvatuning.github.io/silvatuning0000/index.html",
     "main.e6c13ad2.css.map": "//silvatuning.github.io/silvatuning0000/static/css/main.e6c13ad2.css.map",
-    "main.313e8c3b.js.map": "//silvatuning.github.io/silvatuning0000/static/js/main.313e8c3b.js.map",
+    "main.ba02f369.js.map": "//silvatuning.github.io/silvatuning0000/static/js/main.ba02f369.js.map",
     "787.8edbc95a.chunk.js.map": "//silvatuning.github.io/silvatuning0000/static/js/787.8edbc95a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.313e8c3b.js"
+    "static/js/main.ba02f369.js"
   ]
 }
