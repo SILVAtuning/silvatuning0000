@@ -14,9 +14,32 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 const drawerWidth = 240;
-const navItems = ['Home', 'About', 'Contact'];
+const navItems = [
+  {
+    label: 'Home',
+    to: '/'
+  },
+  {
+    label: 'Works',
+    to: '/works'
+  },
+  {
+    label: 'About',
+    to: 'about'
+  },
+  {
+    label: 'Pricement',
+    to: 'pricement'
+  },
+  {
+    label: 'Contact',
+    to: 'contact'
+  }
+];
+const navTitle = "SILVA -tuning-";
 
 function DrawerAppBar(props) {
   const { window } = props;
@@ -29,14 +52,14 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        {navTitle}
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem key={item.label} disablePadding>
             <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -64,14 +87,14 @@ function DrawerAppBar(props) {
             <Typography
               variant="h6"
               component="div"
-              sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+              sx={{ flexGrow: 1, display: { xs: 'block', sm: 'block' } }}
             >
-              MUI
+              {navTitle}
             </Typography>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: '#fff' }}>
-                  {item}
+                <Button key={item.label} sx={{ color: '#fff' }} component={Link} to={item.to}>
+                  {item.label}
                 </Button>
               ))}
             </Box>
