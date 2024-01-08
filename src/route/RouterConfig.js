@@ -8,7 +8,7 @@ import {
 function RouterConfig() {
   return (
     <>
-     <BrowserRouter>
+     <BrowserRouter basename='/silvatuning0000'>
       <Routes>
         <Route index element={<Home />} />
         {/* <Route path="page1" element={<SamplePage1 />} />
