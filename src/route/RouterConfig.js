@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
-  Home
+  Home,
+  Works
 } from "../pages";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -21,8 +22,8 @@ function RouterConfig() {
         <BrowserRouter basename='/silvatuning0000'>
           <Routes>
             <Route index element={<Home />} />
-            {/* <Route path="page1" element={<SamplePage1 />} />
-        <Route path="page2" element={<SamplePage2 />} /> */}
+            <Route path="works" element={<Works />} />
+            {/* <Route path="page2" element={<SamplePage2 />} /> */}
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

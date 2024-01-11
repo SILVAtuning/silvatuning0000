@@ -28,15 +28,15 @@ const navItems = [
   },
   {
     label: 'About',
-    to: 'about'
+    to: '/about'
   },
   {
     label: 'Pricement',
-    to: 'pricement'
+    to: '/pricement'
   },
   {
     label: 'Contact',
-    to: 'contact'
+    to: '/contact'
   }
 ];
 const navTitle = "SILVA -tuning-";
