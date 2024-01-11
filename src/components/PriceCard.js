@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 
 export default function PriceCard() {
   return (
@@ -151,7 +152,14 @@ export default function PriceCard() {
         </CardContent>
       </Card>
 
-
+      <Typography sx={{ mt: 10 }} variant="h4" gutterBottom>お支払方法</Typography>
+      <Divider light sx={{ mb: 3 }} />
+      <Typography variant="subtitle1">
+        Paypalと銀行振り込みにて受け付けています。
+      </Typography>
+      <Typography variant="subtitle1">
+        その他支払い方法についてはご相談ください。
+      </Typography>
     </React.Fragment>
   );
 }
