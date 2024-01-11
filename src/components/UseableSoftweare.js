@@ -27,8 +27,6 @@ function generateTypes(datas) {
       url: data.url
     });
   });
-
-  // console.log({newObj})
   return newObj;
 }
 
@@ -58,7 +56,6 @@ function generateVocalList(datas) {
           <Typography sx={{ mt: 4, mb: 2 }} variant="h5" component="div">~{transKeyName(key)}~</Typography>
           <Grid container spacing={2}>
             {_map(items, (item) => {
-              console.log({item})
               return (
                 <Grid item xs={6} sm={3}>
                   <List sx={{ width: '100%' }}>
@@ -108,8 +105,6 @@ function UseableSoftweare() {
       <CircularProgress size={100} color="secondary" />
     );
   }
-
-  console.log({ datas })
 
   return (
     <React.Fragment>
