@@ -14,15 +14,15 @@ code {
 
 
 /* Youtube Embed */
-.iframe, .nicovideo {
+/* .video-item .iframe, .nicovideo {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
 }
-.iframe, .nicovideo > iframe {
+.video-item .iframe, .nicovideo > iframe {
   position: absolute;
   top: 0;
   right: 0;
   width: 100%;
   height: 100%;
-}
+} */

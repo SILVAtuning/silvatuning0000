@@ -7,7 +7,7 @@ function PageTitle(props) {
   return(
     <React.Fragment>
       <Typography sx={{ mt: 5 }} variant="h1" gutterBottom>{title}</Typography>
-      <Divider light />
+      <Divider light sx={{mb: 5 }}/>
     </React.Fragment>
   );
 }

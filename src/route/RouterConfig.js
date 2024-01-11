@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Home,
-  Works
+  Works,
+  About
 } from "../pages";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
@@ -23,7 +24,7 @@ function RouterConfig() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="works" element={<Works />} />
-            {/* <Route path="page2" element={<SamplePage2 />} /> */}
+            <Route path="about" element={<About />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>
