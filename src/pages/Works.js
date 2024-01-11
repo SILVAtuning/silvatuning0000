@@ -11,7 +11,7 @@ function Home() {
   return (
     <React.Fragment>
       <DrawerAppBar />
-      <Container maxWidth="md">
+      <Container maxWidth="md" sx={{ mb: 10 }}>
         <PageTitle title="Works"/>
         <p>調声させていただいた作品です。</p>
         <p>調声の雰囲気の参考にしていただけますと幸いです。</p>
