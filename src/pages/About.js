@@ -11,7 +11,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 
-function Home() {
+function About() {
   return (
     <React.Fragment>
       <DrawerAppBar />
@@ -38,4 +38,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default About;
