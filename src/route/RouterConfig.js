@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Home,
   Works,
-  About
+  About,
+  Pricement
 } from "../pages";
 import { FooterContent } from '../components';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -52,6 +53,7 @@ function RouterConfig() {
               <Route index element={<Home />} />
               <Route path="works" element={<Works />} />
               <Route path="about" element={<About />} />
+              <Route path="pricement" element={<Pricement />} />
             </Routes>
             <Box
               component="footer"
