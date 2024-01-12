@@ -160,6 +160,20 @@ export default function PriceCard() {
       <Typography variant="subtitle1">
         その他支払い方法についてはご相談ください。
       </Typography>
+
+      <Typography sx={{ mt: 10 }} variant="h4" gutterBottom>注意事項</Typography>
+      <Divider light sx={{ mb: 3 }} />
+      <Typography variant="subtitle1">
+        リテイクは3回までとさせていただきます。
+      </Typography>
+      <Typography variant="subtitle1">
+        3回目以降は追加料金として、1回につき￥500頂戴いたします。
+      </Typography>
+
+      <Divider light sx={{mt: 5,  mb: 3 }} />
+      <Typography variant="subtitle1">
+        ご依頼はフッターのメールボタン、もしくはX(Twitter)のDMより受け付けております。
+      </Typography>
     </React.Fragment>
   );
 }
