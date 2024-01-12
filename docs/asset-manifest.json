@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/silvatuning0000/static/css/main.e6c13ad2.css",
-    "main.js": "/silvatuning0000/static/js/main.180e30fa.js",
+    "main.css": "/silvatuning0000/static/css/main.23e42278.css",
+    "main.js": "/silvatuning0000/static/js/main.203cecb0.js",
     "static/js/787.8edbc95a.chunk.js": "/silvatuning0000/static/js/787.8edbc95a.chunk.js",
     "index.html": "/silvatuning0000/index.html",
-    "main.e6c13ad2.css.map": "/silvatuning0000/static/css/main.e6c13ad2.css.map",
-    "main.180e30fa.js.map": "/silvatuning0000/static/js/main.180e30fa.js.map",
+    "main.23e42278.css.map": "/silvatuning0000/static/css/main.23e42278.css.map",
+    "main.203cecb0.js.map": "/silvatuning0000/static/js/main.203cecb0.js.map",
     "787.8edbc95a.chunk.js.map": "/silvatuning0000/static/js/787.8edbc95a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c13ad2.css",
-    "static/js/main.180e30fa.js"
+    "static/css/main.23e42278.css",
+    "static/js/main.203cecb0.js"
   ]
 }
