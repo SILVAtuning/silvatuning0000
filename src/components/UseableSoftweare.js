@@ -110,7 +110,7 @@ function UseableSoftweare() {
 
   return (
     <React.Fragment>
-      <Paper elevation={3} sx={{ px: 1, py: 0.5 }}>
+      <Paper elevation={3} sx={{ px: 1, py: 0.5, mb: 5 }}>
         {generateVocalList(datas)}
       </Paper>
     </React.Fragment>

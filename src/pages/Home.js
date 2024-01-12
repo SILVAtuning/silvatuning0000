@@ -1,9 +1,13 @@
 import React from "react";
 import { DrawerAppBar, Footer } from "../components";
+import { Helmet } from "react-helmet";
 
 function Home() {
   return (
     <React.Fragment>
+      <Helmet
+        title={`Home | ${process.env.REACT_APP_SITE_NAME}`}
+      />
       <DrawerAppBar />
       <div className="home-bg">
         <video
@@ -17,8 +21,6 @@ function Home() {
           />
         </video>
       </div>
-      {/* <h1>SILVA tuning</h1>
-      <p>こんにちは。</p> */}
     </React.Fragment>
   );
 }
