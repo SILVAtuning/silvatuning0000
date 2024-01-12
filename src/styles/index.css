@@ -12,6 +12,30 @@ code {
     monospace;
 }
 
+.home-bg {
+  width: 100%;
+  height: 75vh;
+  position: relative;
+  overflow: hidden;
+  background-image:
+    radial-gradient(#22222283 10%, transparent 30%);
+  background-size: 15px 15px;
+  background-color: #49494983;
+}
+
+.home-bg video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  background-size: cover;
+  z-index: -1;
+}
+
 
 /* Youtube Embed */
 /* .video-item .iframe, .nicovideo {
