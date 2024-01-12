@@ -34,10 +34,10 @@ const navItems = [
     label: 'Pricement',
     to: '/pricement'
   },
-  {
-    label: 'Contact',
-    to: '/contact'
-  }
+  // {
+  //   label: 'Contact',
+  //   to: '/contact'
+  // }
 ];
 const navTitle = "SILVA -tuning-";
 
@@ -58,7 +58,7 @@ function DrawerAppBar(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }}>
+            <ListItemButton sx={{ textAlign: 'center' }} component={Link} to={item.to}>
               <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
