@@ -40,6 +40,8 @@ function transKeyName(key) {
       return 'Synthesizer V'
     case 'utau':
       return 'UTAU'
+    default:
+      return 'Other'
   }
 
 }
@@ -54,10 +56,10 @@ function generateVocalList(datas) {
       return (
         <React.Fragment>
           <Typography sx={{ mt: 4, mb: 2 }} variant="h5" component="div">~{transKeyName(key)}~</Typography>
-          <Grid container spacing={2}>
+          <Grid container spacing={0}>
             {_map(items, (item) => {
               return (
-                <Grid item xs={6} sm={3}>
+                <Grid item xs={6} sm={4} md={3}>
                   <List sx={{ width: '100%' }}>
                     {_get(item, 'url') ? (
                       <ListItemButton component="a" href={item.url} target="_blank">
