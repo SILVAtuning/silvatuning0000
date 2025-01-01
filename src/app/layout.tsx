@@ -1,16 +1,21 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import NextConfig from "../../next.config";
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
+import { Noto_Sans_JP } from 'next/font/google';
+import { ThemeProvider } from '@mui/material/styles';
+import CustomAppBar from "./_component/AppBar";
+import theme from './theme';
+import "@/styles/_application.scss";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const notoSansJp = Noto_Sans_JP({
+  weight: ['300', '400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-noto-sans',
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const basePath = NextConfig.basePath;
+process.env.BASE_PATH = basePath ? basePath : "";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,8 +29,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body className={`${notoSansJp.variable}`}>
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <ThemeProvider theme={theme}>
+            <CustomAppBar />
+            {children}
+          </ThemeProvider>
+        </AppRouterCacheProvider>
       </body>
     </html>
   );

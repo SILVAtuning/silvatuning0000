@@ -1,0 +1,28 @@
+@use "./variables" as *;
+@use "./home";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Youtube Embed */
+/* .video-item .iframe, .nicovideo {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+.video-item .iframe, .nicovideo > iframe {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+} */
+
+// Font
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');

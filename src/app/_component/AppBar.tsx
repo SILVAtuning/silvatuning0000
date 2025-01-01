@@ -1,5 +1,5 @@
+"use client"
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,12 +12,21 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { MuiLinkForNextJs as Link } from './MuiLinkForNextJs';
+
+type NavItems = {
+  label: string;
+  to: string;
+}
+
+type DrawerContentProps = {
+  onClick: React.MouseEventHandler<HTMLDivElement>;
+  navItems: NavItems[]
+}
 
 const drawerWidth = 240;
-const navItems = [
+const navItems: NavItems[] = [
   {
     label: 'Home',
     to: '/'
@@ -39,42 +48,46 @@ const navItems = [
   //   to: '/contact'
   // }
 ];
-const navTitle = "SILVA -tuning-";
 
-function DrawerAppBar(props) {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
+const DrawerContent = (props: DrawerContentProps) => {
+  const { onClick, navItems } = props;
+  return (
+    <Box onClick={onClick} sx={{ textAlign: 'center' }}>
       <Box sx={{ my: 2 }}>
-        <Link to="/">
-          <img src={`${process.env.PUBLIC_URL}/images/silvatuning_logo.png`} height={36}></img>
+        <Link href="/">
+          <img src={`/images/silvatuning_logo.png`} height={36} alt="logo"></img>
         </Link>
       </Box>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding>
-            <ListItemButton sx={{ textAlign: 'center' }} component={Link} to={item.to}>
-              <ListItemText primary={item.label} />
-            </ListItemButton>
+            <Link href={item.to}>
+              <ListItemButton sx={{ textAlign: 'center' }}>
+                <ListItemText primary={item.label} />
+              </ListItemButton>
+            </Link>
           </ListItem>
         ))}
       </List>
     </Box>
   );
+}
 
-  const container = window !== undefined ? () => window().document.body : undefined;
+const CustomAppBar = () => {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
+
+  const container = window !== undefined ? () => window.document.body : undefined;
 
   return (
     <React.Fragment>
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar component="nav">
+        <AppBar>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -86,15 +99,17 @@ function DrawerAppBar(props) {
               <MenuIcon />
             </IconButton>
             <Box sx={{ flexGrow: 1, mt: 1, display: { xs: 'block', sm: 'block' } }}>
-              <Link to="/">
-                <img src={`${process.env.PUBLIC_URL}/images/silvatuning_logo.png`} height={36}></img>
+              <Link href="/">
+                <img src={`/images/silvatuning_logo.png`} height={36} alt="logo"></img>
               </Link>
             </Box>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-              {navItems.map((item) => (
-                <Button key={item.label} sx={{ color: '#fff' }} component={Link} to={item.to}>
-                  {item.label}
-                </Button>
+              {navItems.map((item, index) => (
+                <Link href={item.to} key={`button-item-${index}`}>
+                  <Button key={item.label} sx={{ color: '#fff' }}>
+                    {item.label}
+                  </Button>
+                </Link>
               ))}
             </Box>
           </Toolbar>
@@ -113,7 +128,7 @@ function DrawerAppBar(props) {
               '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
             }}
           >
-            {drawer}
+            <DrawerContent onClick={handleDrawerToggle} navItems={navItems} />
           </Drawer>
         </nav>
       </Box>
@@ -122,12 +137,4 @@ function DrawerAppBar(props) {
   );
 }
 
-DrawerAppBar.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
-};
-
-export default DrawerAppBar;
+export default CustomAppBar;
