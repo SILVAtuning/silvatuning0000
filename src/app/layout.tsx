@@ -5,8 +5,8 @@ import { Noto_Sans_JP } from 'next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import CustomAppBar from "./_component/AppBar";
 import FooterContent from "./_component/FooterContent";
-import Copyright from "./_component/Copylight";
 import theme from './theme';
+import Box from '@mui/material/Box';
 import "@/styles/_application.scss";
 
 const notoSansJp = Noto_Sans_JP({
@@ -36,8 +36,17 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <CustomAppBar />
             {children}
-            <FooterContent />
-            <Copyright />
+            <Box
+              component="footer"
+              sx={{
+                pb: 3,
+                mx: 0,
+                mt: 'auto',
+                backgroundColor: "rgb(66, 66, 66)"
+              }}
+            >
+              <FooterContent />
+            </Box>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
