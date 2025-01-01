@@ -76,12 +76,16 @@ const DrawerContent = (props: DrawerContentProps) => {
 
 const CustomAppBar = () => {
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [container, setContainer] = React.useState<(() => Element | null)>();
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
 
-  const container = window !== undefined ? () => window.document.body : undefined;
+  React.useEffect(() => {
+    const _container = window !== undefined ? () => window.document.body : undefined;
+    setContainer(_container);
+  }, []);
 
   return (
     <React.Fragment>

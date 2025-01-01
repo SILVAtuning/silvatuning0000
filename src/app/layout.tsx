@@ -4,6 +4,8 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { Noto_Sans_JP } from 'next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
 import CustomAppBar from "./_component/AppBar";
+import FooterContent from "./_component/FooterContent";
+import Copyright from "./_component/Copylight";
 import theme from './theme';
 import "@/styles/_application.scss";
 
@@ -28,12 +30,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className={`${notoSansJp.variable}`}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
             <CustomAppBar />
             {children}
+            <FooterContent />
+            <Copyright />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
