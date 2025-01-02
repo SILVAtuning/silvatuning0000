@@ -4,8 +4,14 @@ import { MuiLinkForNextJs as Link } from "../_component/MuiLinkForNextJs";
 import PageTitle from "../_component/PageTitle";
 import EmbedTable from "../_component/EmbedTable";
 
+const title = "Works";
+
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: `${title} | ${process.env.NEXT_PUBLIC_REACT_APP_SITE_NAME}`
+}
+
 const Works = () => {
-  const title = "Works";
   return (
     <Container maxWidth="md" sx={{ mb: 10 }}>
       <PageTitle title={title} />
