@@ -1,0 +1,153 @@
+"use client"
+
+import React, { useState, useEffect } from "react";
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
+import Grid from '@mui/material/Grid2';
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import CircularProgress from '@mui/material/CircularProgress';
+
+import _isEmpty from 'lodash/isEmpty';
+import _forEach from 'lodash/forEach';
+import _map from 'lodash/map';
+import _get from 'lodash/get';
+
+function generateTypes(datas) {
+  let newObj = {};
+
+  _forEach(datas, (data) => {
+    const type = data.type;
+    if (!(type in newObj)) {
+      newObj[type] = [];
+    }
+    newObj[type].push({
+      primaty: data.name,
+      secondary: data.secondary,
+      url: data.url
+    });
+  });
+  return newObj;
+}
+
+function transKeyName(key) {
+  switch (key) {
+    case 'vocaloid':
+      return 'VOCALOID'
+    case 'cevio':
+      return 'CeVIO'
+    case 'synthesizer_v':
+      return 'Synthesizer V'
+    case 'utau':
+      return 'UTAU'
+    default:
+      return 'Other'
+  }
+
+}
+
+/**
+ * 使用可能音源一覧テーブル
+ */
+function generateVocalList(datas) {
+  const vocalListObj = generateTypes(datas);
+
+  if (!datas) return null;
+
+  return (
+    _map(vocalListObj, (items, key) => {
+
+      return (
+        <React.Fragment>
+          <Typography sx={{ mt: 4, mb: 2 }} variant="h5" component="div">~{transKeyName(key)}~</Typography>
+          <Grid spacing={0} size={12}>
+            {_map(items, (item) => {
+              return (
+                <Grid size={{ xs: 6, sm: 4, md: 3 }}>
+                  <List sx={{ width: '100%' }}>
+                    {_get(item, 'url') ? (
+                      <ListItemButton component="a" href={item.url} target="_blank">
+                        <ListItemText primary={item.primaty} secondary={item.secondary} />
+                      </ListItemButton>
+                    ) : (
+                      <ListItem>
+                        <ListItemText primary={item.primaty} secondary={item.secondary} />
+                      </ListItem>
+                    )}
+                  </List>
+                </Grid>
+              )
+            })}
+          </Grid>
+        </React.Fragment>
+      )
+    })
+  );
+}
+
+/**
+ * 取得したCSVファイルを辞書にする
+ */
+const CsvDic = (props: any) => {
+  if (!props) return [];
+  const [header, ...rows] = props;
+  return rows.map((row: any) =>
+    row.reduce((acc: any, cell: any, i: number) => ({ ...acc, [header[i]]: cell }), {})
+  );
+}
+
+/**
+ * データ取得
+ */
+const fetchData = async () => {
+  const apikey = process.env.REACT_APP_GOOGLE_SHEETS_API_KEY;
+  const sheetsId = process.env.REACT_APP_GOOGLE_SHEETS_DOC_ID;
+  return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetsId}/values/vocal?key=${apikey}`)
+    .then(res => res.json())
+    .then(datas => {
+      return CsvDic(datas.values);
+    })
+}
+
+/**
+ * 使用可能音源一覧
+ */
+function UseableSoftweare() {
+
+  // GoogleスプレッドシートからWorksデータ取得
+  const [datas, setDatas] = useState<any[]>([]);
+  const [isLoading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const initFetch = async () => {
+      const data = await fetchData().finally(() => setLoading(false));
+      setDatas(data);
+    }
+    initFetch();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <CircularProgress size={100} color="secondary" />
+    );
+  } else if (_isEmpty(datas)) {
+    return (
+      <Paper elevation={0} sx={{ px: 1, py: 0.5, mb: 5 }}>
+        <Typography variant="body1">データがありません。</Typography>
+      </Paper>
+    );
+  }
+
+  return (
+    <React.Fragment>
+      <Paper elevation={3} sx={{ px: 1, py: 0.5, mb: 5 }}>
+        {generateVocalList(datas)}
+      </Paper>
+    </React.Fragment>
+  );
+}
+
+export default UseableSoftweare;
