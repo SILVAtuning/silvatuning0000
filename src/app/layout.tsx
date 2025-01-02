@@ -7,6 +7,7 @@ import CustomAppBar from "./_component/AppBar";
 import FooterContent from "./_component/FooterContent";
 import theme from './theme';
 import Box from '@mui/material/Box';
+import Analytics from "@/app/_component/Analytics";
 import "@/styles/_application.scss";
 
 const notoSansJp = Noto_Sans_JP({
@@ -59,6 +60,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
+      <head>
+        {/* GA4のスクリプト */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=G-5CV9XZMTD4`}
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-5CV9XZMTD4', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        ></script>
+      </head>
       <body className={`${notoSansJp.variable}`}>
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
           <ThemeProvider theme={theme}>
@@ -77,6 +97,7 @@ export default function RootLayout({
             </Box>
           </ThemeProvider>
         </AppRouterCacheProvider>
+        <Analytics />
       </body>
     </html>
   );
