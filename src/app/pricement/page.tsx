@@ -1,7 +1,7 @@
 import React from "react";
 import Container from '@mui/material/Container';
 import PageTitle from "../_component/PageTitle";
-import PriceCard from "./_component/PriceCard";
+import PriceCard from "../_component/PriceCard";
 
 const Pricement = () => {
   const title = "Pricement";
