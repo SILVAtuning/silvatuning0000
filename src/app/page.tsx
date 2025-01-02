@@ -1,3 +1,5 @@
+import getImageSrcPath from "@/utils/getImageSrcPath";
+
 export default function Home() {
   return (
     <>
@@ -8,7 +10,7 @@ export default function Home() {
           muted
         >
           <source
-            src={`/video/silva_tuning_opening.mp4`}
+            src={getImageSrcPath('/video/silva_tuning_opening.mp4')}
             type="video/mp4"
           />
         </video>

@@ -14,6 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import { MuiLinkForNextJs as Link } from './MuiLinkForNextJs';
+import getImageSrcPath from "@/utils/getImageSrcPath";
 
 type NavItems = {
   label: string;
@@ -29,19 +30,19 @@ const drawerWidth = 240;
 const navItems: NavItems[] = [
   {
     label: 'Home',
-    to: '/'
+    to: getImageSrcPath('/')
   },
   {
     label: 'Works',
-    to: '/works'
+    to: getImageSrcPath('/works')
   },
   {
     label: 'About',
-    to: '/about'
+    to: getImageSrcPath('/about')
   },
   {
     label: 'Pricement',
-    to: '/pricement'
+    to: getImageSrcPath('/pricement')
   },
   // {
   //   label: 'Contact',
@@ -55,7 +56,7 @@ const DrawerContent = (props: DrawerContentProps) => {
     <Box onClick={onClick} sx={{ textAlign: 'center' }}>
       <Box sx={{ my: 2 }}>
         <Link href="/">
-          <img src={`/images/silvatuning_logo.png`} height={36} alt="logo"></img>
+          <img src={getImageSrcPath(`/images/silvatuning_logo.png`)} height={36} alt="logo"></img>
         </Link>
       </Box>
       <Divider />
@@ -104,7 +105,7 @@ const CustomAppBar = () => {
             </IconButton>
             <Box sx={{ flexGrow: 1, mt: 1, display: { xs: 'block', sm: 'block' } }}>
               <Link href="/">
-                <img src={`/images/silvatuning_logo.png`} height={36} alt="logo"></img>
+                <img src={getImageSrcPath(`/images/silvatuning_logo.png`)} height={36} alt="logo"></img>
               </Link>
             </Box>
             <Box sx={{ display: { xs: 'none', sm: 'block' } }}>

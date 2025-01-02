@@ -7,6 +7,7 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import UseableSoftweare from "../_component/UseableSoftweare";
+import getImageSrcPath from "@/utils/getImageSrcPath";
 
 const About = () => {
   const title = "About";
@@ -16,7 +17,7 @@ const About = () => {
       <Stack direction="row" spacing={2}>
         <Avatar
           alt="SILVA Avater"
-          src={`/images/siva_avater.jpg`}
+          src={getImageSrcPath(`/images/siva_avater.jpg`)}
           sx={{ width: 200, height: 200 }}
         />
       </Stack>
