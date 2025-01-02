@@ -1,6 +1,7 @@
 import getImageSrcPath from "@/utils/getImageSrcPath";
 
 export default function Home() {
+  console.log("env: ", process.env)
   return (
     <>
       <div className="home-bg">
