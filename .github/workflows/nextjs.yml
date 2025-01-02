@@ -28,11 +28,6 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
-    env:
-      NEXT_PUBLIC_REACT_APP_GOOGLE_SHEETS_API_KEY: ${{ secrets.NEXT_PUBLIC_REACT_APP_GOOGLE_SHEETS_API_KEY }}
-      NEXT_PUBLIC_REACT_APP_GOOGLE_SHEETS_DOC_ID: ${{ secrets.NEXT_PUBLIC_REACT_APP_GOOGLE_SHEETS_DOC_ID }}
-      NEXT_PUBLIC_REACT_APP_MAIL_ADDRESS: ${{ secrets.NEXT_PUBLIC_REACT_APP_MAIL_ADDRESS }}
-      NEXT_PUBLIC_REACT_APP_SITE_NAME: ${{ secrets.NEXT_PUBLIC_REACT_APP_SITE_NAME }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -79,6 +74,12 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
+        env:
+          NEXT_PUBLIC_REACT_APP_GOOGLE_SHEETS_API_KEY: ${{ secrets.GOOGLE_SHEETS_API_KEY }}
+          NEXT_PUBLIC_REACT_APP_GOOGLE_SHEETS_DOC_ID: ${{ secrets.GOOGLE_SHEETS_DOC_ID }}
+          NEXT_PUBLIC_REACT_APP_MAIL_ADDRESS: ${{ secrets.MAIL_ADDRESS }}
+          NEXT_PUBLIC_REACT_APP_SITE_NAME: ${{ secrets.SITE_NAME }}
+          NEXT_PUBLIC_REACT_APP_X_ACCOUNT_ID: ${{ secrets.X_ACCOUNT_ID }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
