@@ -74,7 +74,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Debug log
-        run: echo ${{ secrets.NEXT_PUBLIC_API_KEY }}
+        run: echo ${{ secrets }}
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_REACT_APP_GOOGLE_SHEETS_API_KEY: ${{ secrets.NEXT_PUBLIC_REACT_APP_GOOGLE_SHEETS_API_KEY }}
