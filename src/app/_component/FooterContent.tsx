@@ -15,7 +15,7 @@ export default function FooterContent() {
   const xAccountId = process.env.REACT_APP_X_ACCOUNT_ID;
   const backgroundColor = "#424242";
   return (
-    <Container maxWidth="xl" disableGutters>
+    <Container maxWidth={false} disableGutters>
       <Grid container spacing={0}>
         <Grid size={{ xs: 12, sm: 6 }}>
           <Card style={{ backgroundColor: backgroundColor }} square>

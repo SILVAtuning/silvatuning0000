@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react";
+import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -14,6 +15,8 @@ import _isEmpty from 'lodash/isEmpty';
 import _forEach from 'lodash/forEach';
 import _map from 'lodash/map';
 import _get from 'lodash/get';
+
+import { getUseableSoftweare } from "@/api/spreadsheet";
 
 function generateTypes(datas) {
   let newObj = {};
@@ -60,13 +63,13 @@ function generateVocalList(datas) {
     _map(vocalListObj, (items, key) => {
 
       return (
-        <React.Fragment>
+        <Box key={`key-useable-${key}`}>
           <Typography sx={{ mt: 4, mb: 2 }} variant="h5" component="div">~{transKeyName(key)}~</Typography>
-          <Grid spacing={0} size={12}>
-            {_map(items, (item) => {
+          <Grid container size={12}>
+            {_map(items, (item, index) => {
               return (
-                <Grid size={{ xs: 6, sm: 4, md: 3 }}>
-                  <List sx={{ width: '100%' }}>
+                <Grid size={{ xs: 6, sm: 4, md: 3 }} key={`useable-item-${index}`}>
+                  <List>
                     {_get(item, 'url') ? (
                       <ListItemButton component="a" href={item.url} target="_blank">
                         <ListItemText primary={item.primaty} secondary={item.secondary} />
@@ -81,34 +84,10 @@ function generateVocalList(datas) {
               )
             })}
           </Grid>
-        </React.Fragment>
+        </Box>
       )
     })
   );
-}
-
-/**
- * 取得したCSVファイルを辞書にする
- */
-const CsvDic = (props: any) => {
-  if (!props) return [];
-  const [header, ...rows] = props;
-  return rows.map((row: any) =>
-    row.reduce((acc: any, cell: any, i: number) => ({ ...acc, [header[i]]: cell }), {})
-  );
-}
-
-/**
- * データ取得
- */
-const fetchData = async () => {
-  const apikey = process.env.REACT_APP_GOOGLE_SHEETS_API_KEY;
-  const sheetsId = process.env.REACT_APP_GOOGLE_SHEETS_DOC_ID;
-  return fetch(`https://sheets.googleapis.com/v4/spreadsheets/${sheetsId}/values/vocal?key=${apikey}`)
-    .then(res => res.json())
-    .then(datas => {
-      return CsvDic(datas.values);
-    })
 }
 
 /**
@@ -123,7 +102,7 @@ function UseableSoftweare() {
   useEffect(() => {
     setLoading(true);
     const initFetch = async () => {
-      const data = await fetchData().finally(() => setLoading(false));
+      const data = await getUseableSoftweare().finally(() => setLoading(false));
       setDatas(data);
     }
     initFetch();
