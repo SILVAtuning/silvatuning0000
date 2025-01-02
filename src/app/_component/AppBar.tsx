@@ -64,7 +64,7 @@ const DrawerContent = (props: DrawerContentProps) => {
         {navItems.map((item) => (
           <ListItem key={item.label} disablePadding>
             <Link href={item.to}>
-              <ListItemButton sx={{ textAlign: 'center' }}>
+              <ListItemButton sx={{ textAlign: 'center', color: '#fff' }}>
                 <ListItemText primary={item.label} />
               </ListItemButton>
             </Link>
