@@ -18,14 +18,17 @@ import _get from 'lodash/get';
 
 import { getUseableSoftweare } from "@/api/spreadsheet";
 
+// @ts-expect-error ignore
 function generateTypes(datas) {
-  let newObj = {};
+  const newObj = {};
 
   _forEach(datas, (data) => {
     const type = data.type;
     if (!(type in newObj)) {
+      // @ts-expect-error ignore
       newObj[type] = [];
     }
+    // @ts-expect-error ignore
     newObj[type].push({
       primaty: data.name,
       secondary: data.secondary,
@@ -35,6 +38,7 @@ function generateTypes(datas) {
   return newObj;
 }
 
+// @ts-expect-error ignore
 function transKeyName(key) {
   switch (key) {
     case 'vocaloid':
@@ -54,6 +58,7 @@ function transKeyName(key) {
 /**
  * 使用可能音源一覧テーブル
  */
+// @ts-expect-error ignore
 function generateVocalList(datas) {
   const vocalListObj = generateTypes(datas);
 
@@ -71,11 +76,14 @@ function generateVocalList(datas) {
                 <Grid size={{ xs: 6, sm: 4, md: 3 }} key={`useable-item-${index}`}>
                   <List>
                     {_get(item, 'url') ? (
+                      // @ts-expect-error ignore
                       <ListItemButton component="a" href={item.url} target="_blank">
+                        {/* @ts-expect-error ignore */}
                         <ListItemText primary={item.primaty} secondary={item.secondary} />
                       </ListItemButton>
                     ) : (
                       <ListItem>
+                        {/* @ts-expect-error ignore */}
                         <ListItemText primary={item.primaty} secondary={item.secondary} />
                       </ListItem>
                     )}

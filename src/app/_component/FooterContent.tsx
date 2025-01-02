@@ -11,8 +11,8 @@ import Container from '@mui/material/Container';
 import Copyright from "./Copylight";
 
 export default function FooterContent() {
-  const mailAddress = process.env.REACT_APP_MAIL_ADDRESS;
-  const xAccountId = process.env.REACT_APP_X_ACCOUNT_ID;
+  const mailAddress = process.env.NEXT_PUBLIC_REACT_APP_MAIL_ADDRESS;
+  const xAccountId = process.env.NEXT_PUBLIC_REACT_APP_X_ACCOUNT_ID;
   const backgroundColor = "#424242";
   return (
     <Container maxWidth={false} disableGutters>
