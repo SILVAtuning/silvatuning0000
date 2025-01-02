@@ -3,8 +3,14 @@ import Container from '@mui/material/Container';
 import PageTitle from "../_component/PageTitle";
 import PriceCard from "../_component/PriceCard";
 
+const title = "Pricement";
+
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: `${title} | ${process.env.NEXT_PUBLIC_REACT_APP_SITE_NAME}`
+}
+
 const Pricement = () => {
-  const title = "Pricement";
   return (
     <Container maxWidth="md" sx={{ mb: 5 }}>
       <PageTitle title={title} />

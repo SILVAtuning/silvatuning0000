@@ -9,8 +9,14 @@ import Divider from '@mui/material/Divider';
 import UseableSoftweare from "../_component/UseableSoftweare";
 import getImageSrcPath from "@/utils/getImageSrcPath";
 
+const title = "About";
+
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: `${title} | ${process.env.NEXT_PUBLIC_REACT_APP_SITE_NAME}`
+}
+
 const About = () => {
-  const title = "About";
   return (
     <Container maxWidth="md">
       <PageTitle title={title} />
