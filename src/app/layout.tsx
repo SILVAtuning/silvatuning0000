@@ -29,7 +29,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  console.log("env: ", process.env)
   return (
     <html lang="ja">
       <body className={`${notoSansJp.variable}`}>
