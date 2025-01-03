@@ -39,7 +39,7 @@ export default function Home() {
 
   return (
     <div className="home-bg">
-      <video autoPlay loop muted ref={videoRef}>
+      <video autoPlay loop muted playsInline ref={videoRef}>
         <source src={videoSrc} type="video/mp4" />
       </video>
     </div>
