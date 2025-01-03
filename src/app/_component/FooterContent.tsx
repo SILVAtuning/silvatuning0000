@@ -24,7 +24,7 @@ export default function FooterContent() {
                 Email
               </Typography>
               <CardActions sx={{ justifyContent: "center", p: 0, m: 0 }}>
-                <IconButton size="large" component="a" href={`mailto:${mailAddress}`}>
+                <IconButton size="large" component="a" href={`mailto:${mailAddress}`} target="_blank">
                   <MailOutlineIcon fontSize='large' />
                 </IconButton>
               </CardActions>
@@ -38,7 +38,7 @@ export default function FooterContent() {
                 Contact
               </Typography>
               <CardActions sx={{ justifyContent: "center", p: 0, m: 0 }}>
-                <IconButton size="large" component="a" href={`https://twitter.com/messages/compose?recipient_id=${xAccountId}`}>
+                <IconButton size="large" component="a" href={`https://twitter.com/messages/compose?recipient_id=${xAccountId}`} target="_blank">
                   <XIcon fontSize='large' />
                 </IconButton>
               </CardActions>
