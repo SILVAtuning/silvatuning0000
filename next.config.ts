@@ -3,6 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const env = process.env.NODE_ENV;
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -10,7 +11,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: "",
+  basePath: env === "production" ? "/silvatuning0000" : "",
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
     implementation: 'sass-embedded',
