@@ -3,7 +3,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const env = process.env.NEXT_PUBLIC_NODE_ENV;
+const env = process.env.NODE_ENV;
+console.log({ env })
 
 const nextConfig: NextConfig = {
   /* config options here */
