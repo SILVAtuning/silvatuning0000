@@ -30,19 +30,19 @@ const drawerWidth = 240;
 const navItems: NavItems[] = [
   {
     label: 'Home',
-    to: getImageSrcPath('/')
+    to: '/'
   },
   {
     label: 'Works',
-    to: getImageSrcPath('/works')
+    to: '/works'
   },
   {
     label: 'About',
-    to: getImageSrcPath('/about')
+    to: '/about'
   },
   {
     label: 'Pricement',
-    to: getImageSrcPath('/pricement')
+    to: '/pricement'
   },
   // {
   //   label: 'Contact',
