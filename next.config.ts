@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
     includePaths: [path.join(__dirname, "styles")],
     implementation: 'sass-embedded',
   },
-  basePath: process.env.NODE_ENV === "development" ? "" : "/silvatuning0000"
 };
 
 export default nextConfig;
