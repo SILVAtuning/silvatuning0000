@@ -12,7 +12,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  basePath: env === "production" ? "/silvatuning0000" : "",
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
     implementation: 'sass-embedded',

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import NextConfig from "../../next.config";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter';
 import { Noto_Sans_JP } from 'next/font/google';
 import { ThemeProvider } from '@mui/material/styles';
@@ -16,9 +15,6 @@ const notoSansJp = Noto_Sans_JP({
   display: 'swap',
   variable: '--font-noto-sans',
 });
-
-const basePath = NextConfig.basePath;
-process.env.BASE_PATH = basePath ? basePath : "";
 
 const metadataTemplate = {
   title: process.env.NEXT_PUBLIC_REACT_APP_SITE_NAME || "Home",
