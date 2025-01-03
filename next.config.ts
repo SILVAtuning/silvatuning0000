@@ -23,7 +23,8 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_REACT_APP_X_ACCOUNT_ID: process.env.NEXT_PUBLIC_REACT_APP_X_ACCOUNT_ID,
     NEXT_PUBLIC_REACT_APP_SITE_NAME: process.env.NEXT_PUBLIC_REACT_APP_SITE_NAME,
     NEXT_PUBLIC_BASE_PATH: process.env.NEXT_PUBLIC_BASE_PATH
-  }
+  },
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || ""
 };
 
 export default nextConfig;
