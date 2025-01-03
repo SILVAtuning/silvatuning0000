@@ -82,7 +82,7 @@ jobs:
           NEXT_PUBLIC_REACT_APP_MAIL_ADDRESS: ${{ secrets.MAIL_ADDRESS }}
           NEXT_PUBLIC_REACT_APP_SITE_NAME: ${{ secrets.SITE_NAME }}
           NEXT_PUBLIC_REACT_APP_X_ACCOUNT_ID: ${{ secrets.X_ACCOUNT_ID }}
-          NEXT_PUBLIC_BASE_PATH: "/silvatuning0000"
+          NEXT_PUBLIC_REACT_APP_BASE_PATH: "/silvatuning0000"
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
