@@ -10,7 +10,6 @@ const getImageSrcPath = (src: string) => {
   if (_first(src) !== '/') {
     src = '/' + src;
   }
-  console.log("basepath: ", getBasePath())
   return `${getBasePath()}${src}`;
 }
 
