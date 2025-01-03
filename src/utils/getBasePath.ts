@@ -1,7 +1,6 @@
-import { useRouter } from 'next/navigation';
+import _get from 'lodash/get';
+import nextConfig from '../../next.config';
 
 export default function getBasePath() {
-  const router = useRouter();
-  const basepath = router.basePath;
-  return basepath;
+  return _get(nextConfig, 'basePath', '');
 }
