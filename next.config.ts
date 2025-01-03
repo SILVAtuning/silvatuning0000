@@ -1,8 +1,5 @@
 import type { NextConfig } from "next";
 import path from "path";
-import { fileURLToPath } from "url";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -11,7 +8,7 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
+    includePaths: [path.join(process.cwd(), "styles")],
     implementation: 'sass-embedded',
   },
 };
